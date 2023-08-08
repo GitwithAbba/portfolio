@@ -1,0 +1,351 @@
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',  sans-serif;
+}
+
+/* box-sizing and font sizing */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+body {
+  font-size: 1.6rem;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  background: #be3144;
+  z-index: 1;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: clamp(0.01rem, 2rem, 2.4rem);
+  font-weight: 500;
+}
+
+
+li {
+  padding-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11svw;
+  width: 7svw;
+  height: 5svh;
+}
+
+li > a {
+  color: white;
+}
+
+@media (max-width: 281px) {
+  nav > ul > li > a {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+nav > ul > li > a:hover {
+  color: #1b1b32;
+  cursor: pointer;
+}
+
+@media (max-width: 281px) {
+  .nav > ul > li > a {
+    padding: 0;
+  }
+}
+
+#navbar {
+  margin-right: 4rem;
+  width: 32.5rem;
+}
+
+.tests {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.introduction {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+#welcome-section {
+  height: 100svh;
+  background: linear-gradient(45deg, var(--main-gray) 25%, black 95% 100%);  
+}
+
+.introduction {
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: clamp(3rem, 9svh, 6rem);
+}
+
+.introduction > p {
+  font-size: clamp(2rem, 5svh, 3rem);
+  color: var(--main-red);
+  font-weight: 100;
+  font-style: italic;
+  letter-spacing: -.2;
+}
+
+
+.test-div2 {
+  height: 100%;
+  background-color: var(--main-blue);
+}
+
+img {
+  object-fit:cover;
+  width: 100%;
+  height: 100%;
+}
+
+.project-tiles {
+  margin: auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(25%, 320px));
+  gap: 5rem; /* if I change this to 5% or percentage instead of "rem" the section no longer fits the last div */
+  max-width: 79%;
+  padding-bottom: 5rem; /* originally using "margin-bottom" created enough room for all elements on smaller sized screens but created a white space because margins just add space around the content (the div). Adding padding solved this problem. */
+}
+
+.project-tile {
+  width: clamp(33%, 100%, 100%);
+  height: clamp(33%, 90%, 100%);
+  background-color: var(--main-gray);
+}
+
+.project-tile > a {
+  background: var(--main-gray);
+}
+
+.project-tile > a > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: clamp(1.6rem, 1.5svh, 2.5rem);
+  background-color: var(--main-gray);
+}
+
+.project-tile .code {
+  visibility: hidden;
+}
+
+.project-tile:hover .code {
+  visibility: visible;
+  color: red;
+  transition: color 0.75s ease-out;
+}
+
+#projects > h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 55;
+  padding-bottom: 75px;
+  text-decoration: underline;
+  text-underline-offset: 16px;
+  font-size: clamp(2rem, 6svh, 6rem);
+  font-weight: 400;
+  color: white;
+}
+
+#last {
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-gray);
+  margin: auto;
+}
+
+#last > a > p {
+  color: white;
+}
+
+#last:hover {
+  visibility: visible;
+  background-color: var(--main-red);
+  transition: background-color 0.5s ease-in;
+}
+
+.extraspace{
+  height: 25px;
+  background-color: var(--main-blue);
+}
+
+.test-div3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: fit-content;
+  width: auto;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--main-gray);
+  border-color: var(--main-gray);
+  color: white;
+  gap: 1rem;
+}
+
+.test-div3 > h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(3rem, 8svh, 6rem);
+}
+
+.test-div4 {
+  font-style: italic;
+  font-size: clamp(1rem, 2svh, 2rem);
+  gap: 25rem;
+}
+
+.socials {
+  display: flex;
+  color: white;
+  padding-bottom: 5px;
+  padding-top: 15rem;
+}
+
+.socials > ul {
+  width: 75vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.socials > ul > li {
+  //margin: 18%;
+  width: 18vw;
+  font-size: 2rem;
+}
+
+@media (max-width: 281px) {
+  .socials > ul > li {
+    font-size: 1.4rem;
+  }
+}
+
+.move:hover {
+  padding-top: 45px;
+  transition: 1s;
+  }
+
+//.move:hover {
+    animation: move 1.5s linear infinite;
+    }
+  
+  //@keyframes move {
+    0% {
+      bottom: 0;
+    }
+  
+    100% {
+      top: 100%;
+    }
+  }
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-top: solid;
+  border-color: var(--main-red);
+  background-color: var(--main-gray);
+  color: white;
+  gap: clamp(1rem, 10rem, 10rem);
+}
+
+footer > p {
+  font-size: clamp(1rem, 2svh, 4rem);
+}
+
+footer > p > a {
+  color: white;
+  font-size: clamp(1rem, 2svh, 4rem);
+}
